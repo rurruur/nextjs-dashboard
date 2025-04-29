@@ -5,11 +5,10 @@ import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '../../lib/data';
 import { Suspense } from 'react';
 import { CardSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
-import StaticContent from '@/app/ui/dashboard/static-test';
 
 // export const dynamic = 'force-static';
 // export const dynamic = 'force-dynamic';
-export const experimental_ppr = false;
+export const experimental_ppr = true;
 
 export default async function Page() {
   const {numberOfInvoices, numberOfCustomers, totalPaidInvoices, totalPendingInvoices} = await fetchCardData();
@@ -21,19 +20,18 @@ export default async function Page() {
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
-      <StaticContent />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {/* <Suspense fallback={<CardSkeleton />}>
+        <Suspense fallback={<CardSkeleton />}>
           <CardWrapper />
-        </Suspense> */}
-        <Card title="Collected" value={totalPaidInvoices} type="collected" />
+        </Suspense>
+        {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
         <Card title="Pending" value={totalPendingInvoices} type="pending" />
         <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
         <Card
           title="Total Customers"
           value={numberOfCustomers}
           type="customers"
-        />
+        /> */}
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <Suspense fallback={<RevenueChartSkeleton />}>
