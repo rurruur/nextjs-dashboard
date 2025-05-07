@@ -1,0 +1,4 @@
+{ "item": {"ticket_text": "20240505-000123 주문 상태 알려줘", "correct_label": "get_order_status", "expected_output_contains": "배송중"} }
+{ "item": {"ticket_text": "20240505-000999 주문 상태가 궁금합니다.", "correct_label": "get_order_status", "expected_output_contains": "배송완료"} }
+{ "item": {"ticket_text": "20240505-000999 주문을 취소해주세요.", "correct_label": "cancel_order", "expected_output_contains": "취소할 수 없습니다"} }
+{ "item": {"ticket_text": "20240505-000123 주문을 취소해주세요.", "correct_label": "cancel_order", "expected_output_contains": "취소했습니다"} }
